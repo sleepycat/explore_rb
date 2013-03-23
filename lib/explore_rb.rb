@@ -5,7 +5,7 @@ module ExploreRb
 
   def self.extended base
     puts "Use the following commands to look around:"
-    puts "classes, objects, get_objects, local_variables, gems, draw_this, help"
+    puts "classes, objects, get_objects, symbols, local_variables, gems, draw_this, help"
   end
 
   def classes
