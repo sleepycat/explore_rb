@@ -43,6 +43,12 @@ As you might expect, list gems with:
 
     $ gems
 
+### Listing Symbols
+
+You can get an array of all existing symbols with:
+
+    $ symbols
+
 ### Visualizing code execution
 
 An SVG file showing the various function calls will be written to the desktop
