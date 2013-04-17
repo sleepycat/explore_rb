@@ -5,7 +5,9 @@ module ExploreRb
 
   def self.extended base
     puts "Use the following commands to look around:"
-    puts "classes, objects, get_objects, symbols, local_variables, gems, draw_this, help"
+    puts "  classes, objects, get_objects, symbols, gems,"
+    puts "  local_variables, draw_this, start_garbage_collection"
+    puts "  stop_garbage_collection, help"
   end
 
   def classes
@@ -38,6 +40,16 @@ module ExploreRb
     path = "#{ENV['HOME']}/Desktop"
     Traceur.watch_paths('.+', path, &block)
     puts "File saved in #{path}."
+  end
+
+  def start_garbage_collection
+    ENV['RUBY_GC_MALLOC_LIMIT']='0'
+    GC.stress=true
+    GC.start
+  end
+
+  def stop_garbage_collection
+    GC.stress=false
   end
 
 end

@@ -72,6 +72,33 @@ The greeting message displayed when this library is required mentions
 this library but it was worth pointing out since fits in with what this library
 is trying to accomplish.
 
+### Garbage Collection
+
+There are also methods "start_garbage_collection" and "stop_garbage_collection"
+to allow people to experiment with the Ruby garbage collector:
+
+    $ class Person; end
+    $=> nil
+    $ bob = Person.new
+    $=> #<Person:0x007fc63e503b90>
+    $ Person.new
+    $=> #<Person:0x007fc63e507920>
+    $ Person.new
+    $=> #<Person:0x007fc63e5041a8>
+    $ get_objects Person
+    $=> [#<Person:0x007fc63e503b90>, #<Person:0x007fc63e5041a8>, #<Person:0x007fc63e507920>]
+    $ start_garbage_collection
+    $=> nil
+    $ get_objects Person
+    $=> [#<Person:0x007fc63e503b90>]
+    $ bob = nil
+    $=> nil
+    $ get_objects Person
+    $=> []
+
+
+
+
 ## Contributing
 
 1. Fork it
