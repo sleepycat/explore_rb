@@ -7,7 +7,7 @@ module ExploreRb
     puts "Use the following commands to look around:"
     puts "  classes, objects, get_objects, symbols, gems,"
     puts "  local_variables, draw_this, start_garbage_collection"
-    puts "  stop_garbage_collection, help"
+    puts "  stop_garbage_collection, load_paths, help"
   end
 
   def classes
@@ -50,6 +50,12 @@ module ExploreRb
 
   def stop_garbage_collection
     GC.stress=false
+  end
+
+  def load_paths
+    # $: returns a reference.
+    # For demo purposes we want a value.
+    Array.new $:
   end
 
 end

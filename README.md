@@ -43,6 +43,12 @@ As you might expect, list gems with:
 
     $ gems
 
+### Showing the load path
+
+Get an array (rather than a reference) of the current load paths with:
+
+    $ load_paths
+
 ### Listing Symbols
 
 You can get an array of all existing symbols with:
